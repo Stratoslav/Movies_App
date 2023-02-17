@@ -1,4 +1,3 @@
-
 .link {
     color: #000;
     text-decoration: none;
@@ -6,9 +5,8 @@
     padding: 0 5px;
 }
 .link_active {
-        color: #2f588b;
-        text-decoration: underline;
-        font-size: 22px;
-        padding: 0 5px;
-    
+    color: #2f588b;
+    text-decoration: underline;
+    font-size: 22px;
+    padding: 0 5px;
 }
