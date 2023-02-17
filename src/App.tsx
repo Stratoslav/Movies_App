@@ -9,21 +9,21 @@ const MovieDetails = lazy(() => import("./Components/Movies/MovieDetails"));
 const Reviews = lazy(() => import("./Components/Movies/Reviews"));
 const Cast = lazy(() => import("./Components/Movies/Cast"));
 
-const apiKey = "be91785ae562dae75d4f006499f353c9";
+
 
 const App = () => (
   <>
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path={routes.home} element={<Loyaut />}>
-          <Route index element={<HomePage apiKey={apiKey} />} />
+          <Route index element={<HomePage />} />
           <Route path={routes.moviesPage} element={<MovieDetails />}>
             <Route path={routes.movieReview} element={<Reviews />} />
             <Route path={routes.movieCredits} element={<Cast />} />
           </Route>
           <Route
             path="/movies"
-            element={<MoviesPage apiKey={apiKey} />}
+            element={<MoviesPage />}
           ></Route>
         </Route>
       </Routes>

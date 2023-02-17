@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import styles from "../Loyaut/Loyaut.module.css";
+import styles from "./Loyaut.module.css";
 const Loyaut = () => {
-  const isActiveRef = ({ isActive }) =>
-    isActive ? styles.link_active : styles.link;
+  const [isActive, setIsActive] = useState(true);
   return (
     <div>
-      <NavLink className={isActiveRef} to="/">
+      <NavLink
+        onClick={setIsActive(false)}
+        className={isActive ? styles.link_active : styles.link}
+        to="/"
+      >
         Home
       </NavLink>
-      <NavLink className={isActiveRef} to="/movies">
+      <NavLink
+        onClick={setIsActive(true)}
+        className={!isActive ? styles.link_active : styles.link}
+        to="/movies"
+      >
         Movies
       </NavLink>
       <Outlet />
