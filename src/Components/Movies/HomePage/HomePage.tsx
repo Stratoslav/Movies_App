@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import './homePage.scss';
-import { apiKey } from '../../../../ApiKey';
+import { apiKey } from '../../ApiKey';
 
 type AllMovies = {
   adult: boolean;

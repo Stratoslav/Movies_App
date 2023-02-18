@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "ApiKey.ts"]
+  "include": ["src", "src/Components/ApiKey.ts"]
 }
