@@ -2,7 +2,7 @@
 import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { apiKey } from '../../apiKey';
+import { apiKey } from '../../../../apiKey';
 import { MovieDetailsTypes } from '../../../types';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';

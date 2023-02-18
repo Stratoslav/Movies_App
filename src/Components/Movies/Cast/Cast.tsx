@@ -3,7 +3,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Axios from 'axios';
-import { apiKey } from '../../apiKey';
+import { apiKey } from '../../../../apiKey';
 import routes from '../../../routes';
 import { Actors } from '../Actors/Actors';
 import { ActorTypes } from '../../../types';
