@@ -2,7 +2,7 @@ import React, { ChangeEvent, FormEvent } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
-import { apiKey } from '../../../../apiKey';
+import { apiKey } from '../../../../ApiKey';
 type MoviesSearchType = {
   id: number;
   original_title: string;
