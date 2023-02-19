@@ -1,8 +1,11 @@
-import React, { ChangeEvent, FormEvent } from 'react';
-import { useState } from 'react';
-import axios from 'axios';
+//react
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+//lin
+import axios from 'axios';
+//components
 import { apiKey } from '../../ApiKey';
+
 type MoviesSearchType = {
   id: number;
   original_title: string;
@@ -24,7 +27,7 @@ const MoviesPage = () => {
           )
           .then(({ data }) => {
             setTopMovie(data.results);
-            console.log(data.results);
+         
           });
       }
     } catch (e) {

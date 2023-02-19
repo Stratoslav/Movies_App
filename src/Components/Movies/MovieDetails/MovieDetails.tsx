@@ -1,27 +1,29 @@
 import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
+//lib
 import Axios from 'axios';
+//components
 import { apiKey } from '../../ApiKey';
 import { MovieDetailsTypes } from '../../../types';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { imagesMovieActions } from '../../../redux/movieDetailsSlice';
-import { RootState } from '../../../redux/store';
-
-import './details.scss';
 import { MovieDetailsImage } from './MovieDetailsImage';
 import { MovieDetailsVideo } from './MovieDetailsVideo';
-const shortId = require('shortid');
+//styles
+import './details.scss';
+
+
 const MovieDetails = () => {
   const [movie, setMovie] = useState<MovieDetailsTypes>(Object);
+  const [isImage, setIsImage] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  let [isImage, setIsImage] = useState(false);
+ 
   const goToBack = () => navigate(-1);
 
   const getMovieImage = (id: string) => {
-    axios
+    Axios
       .get(
         ` 
 https://api.themoviedb.org/3/movie/${id}/images?api_key=${apiKey}   `

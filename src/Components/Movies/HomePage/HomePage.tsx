@@ -1,29 +1,13 @@
-import React from 'react';
+//react
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+//lib
+import axios from 'axios';
+//components
 import './homePage.scss';
 import { apiKey } from '../../ApiKey';
+import { AllMovies } from '../../../types/AllMovies';
 
-type AllMovies = {
-  adult: boolean;
-  backdrop_path: string;
-  first_air_date?: string;
-  id: number;
-  name: string;
-  title?: string;
-  original_language?: string;
-  original_title: string;
-  overview: string;
-  poster_path: string;
-  media_type?: string;
-  genre_ids?: number[];
-  popularity?: number;
-  release_date: string;
-  video?: boolean;
-  vote_average?: number;
-  vote_count?: number;
-};
 
 const HomePage = () => {
   const [movies, setMovies] = useState<AllMovies[]>([]);

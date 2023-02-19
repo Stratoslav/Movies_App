@@ -1,17 +1,15 @@
-import React from 'react';
+//react
 import { NavLink, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+//lib
 import Axios from 'axios';
+//component
 import { apiKey } from '../../ApiKey';
 import { ActorActions } from '../../../redux/movieActorSlice';
+import { ActorsType } from '../../../types';
 
-type ActorsType = {
-  id: number;
-  name: string;
-  character: string;
-  profile_path: string;
-};
+
 const Cast = () => {
   const [actors, setActors] = useState([]);
   const dispatch = useDispatch();
@@ -22,7 +20,7 @@ const Cast = () => {
     Axios.get(
       `https://api.themoviedb.org/3/person/${actorId}?api_key=${apiKey}`
     ).then(({ data }) => {
-      console.log(data);
+     
       dispatch(ActorActions.addActor(data));
     });
   };

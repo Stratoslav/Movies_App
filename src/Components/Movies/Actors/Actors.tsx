@@ -1,17 +1,15 @@
-import React from 'react';
-import { ActorTypes } from '../../../types';
+//react
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import { useNavigate } from 'react-router';
 
-export const Actors = (): any => {
+export const Actors = () => {
   const actor = useSelector((s: RootState) => s.actor.actor);
   const navigate = useNavigate();
   const makeStepBack = () => {
     navigate(-1);
   };
 
-  console.log(navigate);
   return (
     <>
       <button onClick={makeStepBack}>Back</button>

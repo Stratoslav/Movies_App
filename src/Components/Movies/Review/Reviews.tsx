@@ -1,9 +1,12 @@
+//react
 import { NavLink, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+//lib
 import Axios from 'axios';
+//components
 import { NoReview } from './NoReview';
 import { ReviewType } from '../../../types/Review';
-const apiKey = 'be91785ae562dae75d4f006499f353c9';
+import { apiKey } from '../../ApiKey';
 
 const Reviews = () => {
   const [review, setReview] = useState<ReviewType[]>([]);
@@ -41,7 +44,7 @@ const Reviews = () => {
                 />
                 <span>Raiting: {author_details.rating}</span>
               </div>
-              {/* <h3>AUTHOR: {author}</h3> */}
+             
               <div>{created_at}</div>
               <p>{content}</p>
             </li>

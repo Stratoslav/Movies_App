@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import styles from './Loyaut.module.css';
+import './Loyaut.scss';
 const Loyaut = () => {
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <div className={styles.wrap}>
+      <div className={'wrap'}>
         <NavLink
           onClick={() => setIsActive(false)}
-          className={isActive ? styles.link : styles.link_active}
+          className={isActive ? "link" : "link_active"}
           to="/"
         >
           Home
         </NavLink>
         <NavLink
           onClick={() => setIsActive(true)}
-          className={!isActive ? styles.link : styles.link_active}
+          className={!isActive ? "link" : "link_active"}
           to="/movies"
         >
           Movies
         </NavLink>
         <NavLink
           onClick={() => setIsActive(true)}
-          className={!isActive ? styles.link : styles.link_active}
+          className={!isActive ? "link" : "link_active"}
           to="/actor"
         >
           Actor

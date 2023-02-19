@@ -1,16 +1,19 @@
-import { useRef } from 'react';
-
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+//react
 import { useSelector } from 'react-redux';
+//lib
+import Carousel from 'react-multi-carousel';
+import uniqid from 'uniqid';
+//styles
+import 'react-multi-carousel/lib/styles.css';
+// components
 import { RootState } from '../../../redux/store';
 
-import uniqid from 'uniqid';
+
 
 export const MovieDetailsImage = () => {
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
+
       breakpoint: { max: 4000, min: 3000 },
       items: 5
     },

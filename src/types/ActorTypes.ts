@@ -14,3 +14,9 @@ export type ActorTypes = {
   popularity: number;
   profile_path: string;
 };
+export type ActorsType = {
+  id: number;
+  name: string;
+  character: string;
+  profile_path: string;
+};
