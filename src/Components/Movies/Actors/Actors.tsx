@@ -27,7 +27,10 @@ export const Actors = (): any => {
         <span>Date of Birthday: {actor.birthday}</span>
         <span>{actor.place_of_birth}</span>
       </div>
-      <div>Popularity: {actor.popularity && actor.popularity.toLocaleString().slice(0, 4)}/100</div>
+      <div>
+        Popularity:{' '}
+        {actor.popularity && actor.popularity.toLocaleString().slice(0, 4)}/100
+      </div>
       <p>gender:{actor.gender}</p>
     </>
   );

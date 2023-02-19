@@ -9,8 +9,7 @@ const movieActor = createSlice({
   reducers: {
     addActor: (state, action: PayloadAction<ActorTypes>) => {
       state.actor = action.payload;
-      },
-     
+    }
   }
 });
 

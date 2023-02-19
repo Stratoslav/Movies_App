@@ -1,0 +1,58 @@
+.details {
+  &__img {
+    background: rgba(206, 201, 201, 0.4);
+    width: 100%;
+    height: 600px;
+    opacity: 0.5;
+    object-fit: cover;
+    position: absolute;
+    z-index: -55;
+    // height: 600px;
+  }
+  &__wrap {
+    width: 1200px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  &__backdrop {
+    z-index: 1000;
+    border-radius: 5px;
+  }
+  &__wrap {
+    z-index: 10000000;
+    opacity: 1;
+  }
+  &__company {
+    display: flex;
+  }
+  &__date,
+  &__status,
+  &__tagline,
+  &__average,
+  &__average-score,
+  &__average-vote,
+  &__genre,
+  &__popularity,
+  &__overview,
+  &__overview-text,
+  &__company {
+    margin-bottom: 12px;
+  }
+}
+
+.wrap-2 {
+  margin-left: 20px;
+}
+
+.background {
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  z-index: -3;
+}
+._L8X8r {
+  width: 530px;
+}

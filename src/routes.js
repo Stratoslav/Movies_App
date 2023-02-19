@@ -4,5 +4,5 @@ export default {
   moviesPage: 'movies/:id/*',
   movieReview: 'review',
   movieCredits: 'credits',
-  actors: 'actor'
+  actors: 'actor/:id'
 };

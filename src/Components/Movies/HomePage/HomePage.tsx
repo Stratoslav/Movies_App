@@ -56,16 +56,15 @@ const HomePage = () => {
                   src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${poster_path}`}
                   alt=""
                 />
-
-                <p>{original_title ? original_title : name}</p>
+                <h3 className="page_list-title">
+                  {original_title ? original_title : name}
+                </h3>
                 <p>
                   {overview.length > 80
                     ? `${overview.slice(0, 80)}...`
                     : overview}
                 </p>
-                <div>
-                  release date: {release_date ? release_date : first_air_date}
-                </div>
+                <div>{release_date ? release_date : first_air_date}</div>
               </NavLink>
             </li>
           )

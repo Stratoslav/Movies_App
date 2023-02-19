@@ -1,4 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;400;500&display=swap');
+* {
+  box-sizing: border-box;
+  font-weight: 200;
+}
 h1 {
+  font-size: 30px;
   font-weight: 400;
   font-family: 'Poppins', Arial, Helvetica, sans-serif fantasy;
+}
+body {
+  color: antiquewhite;
+  margin: 0;
+
+  font-family: 'Prompt', sans-serif;
+}
+a {
+  color: rgba(235, 235, 235, 0.733);
+  font-weight: 100;
+  padding: 0;
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+  padding: 0;
+}
+/* .container {
+  width: 1300px;
+
+} */
+p {
+  margin: 0;
 }

@@ -1,14 +1,11 @@
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Axios from 'axios';
 import { apiKey } from '../../ApiKey';
-import routes from '../../../routes';
-import { Actors } from '../Actors/Actors';
-import { ActorTypes } from '../../../types';
 import { ActorActions } from '../../../redux/movieActorSlice';
-// import {AppDispatch} from '../../redux/store'
+
 type ActorsType = {
   id: number;
   name: string;
@@ -18,7 +15,7 @@ type ActorsType = {
 const Cast = () => {
   const [actors, setActors] = useState([]);
   const dispatch = useDispatch();
-  //  const [actor, setActor] = useState<ActorTypes>(Object)
+
   const { id } = useParams();
 
   const getActor = (actorId: number): any => {
@@ -48,9 +45,8 @@ const Cast = () => {
       <h1>actors</h1>
       <ul>
         {actors.map(({ id, name, character, profile_path }: ActorsType) => (
-         
           <li key={id} onClick={() => getActor(id)}>
-             <NavLink to="/actor">
+            <NavLink to={`/actor/${id}`}>
               <img
                 width={120}
                 src={
@@ -64,7 +60,6 @@ const Cast = () => {
               <p>{name}</p>
             </NavLink>
           </li>
-         
         ))}
       </ul>
     </>

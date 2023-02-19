@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { ActorReducer } from './movieActorSlice';
-import { imagesMovieReducer } from './movieDetails';
+import { imagesMovieReducer } from './movieDetailsSlice';
 
 export const store = configureStore({
   reducer: {
-        actor: ActorReducer,
-      imageDetails: imagesMovieReducer,
+    actor: ActorReducer,
+    imageDetails: imagesMovieReducer
   }
 });
 

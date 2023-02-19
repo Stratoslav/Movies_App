@@ -4,30 +4,32 @@ import styles from './Loyaut.module.css';
 const Loyaut = () => {
   const [isActive, setIsActive] = useState(false);
   return (
-    <div>
-      <NavLink
-        onClick={() => setIsActive(false)}
-        className={isActive ? styles.link : styles.link_active}
-        to="/"
-      >
-        Home
-      </NavLink>
-      <NavLink
-        onClick={() => setIsActive(true)}
-        className={!isActive ? styles.link : styles.link_active}
-        to="/movies"
-      >
-        Movies
-      </NavLink>
-      <NavLink
-        onClick={() => setIsActive(true)}
-        className={!isActive ? styles.link : styles.link_active}
-        to="/actor"
-      >
-        Actor
-      </NavLink>
+    <>
+      <div className={styles.wrap}>
+        <NavLink
+          onClick={() => setIsActive(false)}
+          className={isActive ? styles.link : styles.link_active}
+          to="/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          onClick={() => setIsActive(true)}
+          className={!isActive ? styles.link : styles.link_active}
+          to="/movies"
+        >
+          Movies
+        </NavLink>
+        <NavLink
+          onClick={() => setIsActive(true)}
+          className={!isActive ? styles.link : styles.link_active}
+          to="/actor"
+        >
+          Actor
+        </NavLink>
+      </div>
       <Outlet />
-    </div>
+    </>
   );
 };
 
