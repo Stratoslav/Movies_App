@@ -2,8 +2,7 @@ import { MovieImage, MovieVideoDetails } from '../types/MovieDetails';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
-  images: {} as MovieImage,
-  video: {} as MovieVideoDetails
+  images: {} as MovieImage
 };
 
 const movieActor = createSlice({
@@ -12,9 +11,6 @@ const movieActor = createSlice({
   reducers: {
     getImageDetails: (state, action: PayloadAction<MovieImage>) => {
       state.images = action.payload;
-    },
-    getVideoDetails: (state, action) => {
-      state.video = action.payload;
     }
   }
 });

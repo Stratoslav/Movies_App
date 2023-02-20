@@ -1,11 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { popularMoviesReducer } from '../types/movieTypes';
 import { ActorReducer } from './movieActorSlice';
 import { imagesMovieReducer } from './movieDetailsSlice';
+import { peopleMovieReducer } from './peopleSlice';
 
 export const store = configureStore({
   reducer: {
     actor: ActorReducer,
-    imageDetails: imagesMovieReducer
+    imageDetails: imagesMovieReducer,
+    popularMovies: popularMoviesReducer,
+    people: peopleMovieReducer
   }
 });
 

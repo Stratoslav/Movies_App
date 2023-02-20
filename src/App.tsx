@@ -1,10 +1,12 @@
+//react
 import { Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+//lib
 import { Loyaut } from './Components/Loyaut/Loyaut';
-import { Children, lazy, Suspense } from 'react';
+//components
 import routes from './routes';
 import { Actors } from './Components/Movies/Actors/Actors';
-import { ActorTypes } from './types';
-
+import { People } from './Components/People/People';
 const HomePage = lazy(() => import('./Components/Movies/HomePage/HomePage'));
 const MoviesPage = lazy(
   () => import('./Components/Movies/MoviesPage/MoviesPage')
@@ -28,6 +30,7 @@ const App = () => (
             </Route>
             <Route path="/movies" element={<MoviesPage />}></Route>
             <Route index path={routes.actors} element={<Actors />} />
+            <Route index path="/actors" element={<People />} />
           </Route>
         </Routes>
       </Suspense>

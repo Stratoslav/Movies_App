@@ -6,39 +6,20 @@ import Axios from 'axios';
 import { apiKey } from '../../ApiKey';
 import { MovieDetailsTypes } from '../../../types';
 import { useDispatch } from 'react-redux';
-import { imagesMovieActions } from '../../../redux/movieDetailsSlice';
+
 import { MovieDetailsImage } from './MovieDetailsImage';
-import { MovieDetailsVideo } from './MovieDetailsVideo';
 //styles
 import './details.scss';
-
+import { getMovieImage } from '../../../API/movieApi';
 
 const MovieDetails = () => {
+  const dispatch = useDispatch();
   const [movie, setMovie] = useState<MovieDetailsTypes>(Object);
   const [isImage, setIsImage] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
- 
-  const goToBack = () => navigate(-1);
 
-  const getMovieImage = (id: string) => {
-    Axios
-      .get(
-        ` 
-https://api.themoviedb.org/3/movie/${id}/images?api_key=${apiKey}   `
-      )
-      .then(({ data }) => {
-        dispatch(imagesMovieActions.getImageDetails(data));
-      });
-  };
-  const getMovieVideo = (id: string) => {
-    Axios.get(
-      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}`
-    ).then(({ data }) => {
-      dispatch(imagesMovieActions.getVideoDetails(data));
-    });
-  };
+  const goToBack = () => navigate(-1);
 
   useEffect(() => {
     Axios.get(
@@ -47,8 +28,7 @@ https://api.themoviedb.org/3/movie/${id}/images?api_key=${apiKey}   `
       setMovie(data);
     });
     if (id) {
-      getMovieImage(id);
-      getMovieVideo(id);
+      getMovieImage(id, dispatch);
     }
   }, [id]);
 
@@ -56,7 +36,7 @@ https://api.themoviedb.org/3/movie/${id}/images?api_key=${apiKey}   `
     <>
       <section className="details">
         <button className="back-button" onClick={goToBack}>
-          Back
+          <span></span> Back
         </button>
         <div className="background">
           <img
@@ -126,14 +106,14 @@ https://api.themoviedb.org/3/movie/${id}/images?api_key=${apiKey}   `
             </div>
           </div>
         </div>
-        <p onClick={() => setIsImage(true)}>Videos</p>
-        <p onClick={() => setIsImage(false)}>Images</p>
 
-        {isImage === true ? <MovieDetailsVideo /> : <MovieDetailsImage />}
+        <MovieDetailsImage />
       </section>
+      <div className="more__information-details">
+        <NavLink to="review">Review</NavLink>
+        <NavLink to="credits">Credits</NavLink>
+      </div>
 
-      <NavLink to="review">Review</NavLink>
-      <NavLink to="credits">Credits</NavLink>
       <Outlet />
     </>
   );

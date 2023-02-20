@@ -1,19 +1,16 @@
 //react
 import { useSelector } from 'react-redux';
-//lib
-import Carousel from 'react-multi-carousel';
-import uniqid from 'uniqid';
 //styles
 import 'react-multi-carousel/lib/styles.css';
 // components
 import { RootState } from '../../../redux/store';
-
-
+//lib
+import Carousel from 'react-multi-carousel';
+const uniqid = require('uniqid');
 
 export const MovieDetailsImage = () => {
   const responsive = {
     superLargeDesktop: {
-
       breakpoint: { max: 4000, min: 3000 },
       items: 5
     },
@@ -37,7 +34,7 @@ export const MovieDetailsImage = () => {
       {images.backdrops ? (
         <>
           {' '}
-          <h2>Media</h2>
+          <h2 style={{ width: '1200px', margin: '20px auto' }}>Media</h2>
           <ul>
             <Carousel
               swipeable={false}

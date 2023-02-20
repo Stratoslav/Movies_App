@@ -7,16 +7,21 @@ import axios from 'axios';
 import './homePage.scss';
 import { apiKey } from '../../ApiKey';
 import { AllMovies } from '../../../types/AllMovies';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
+import { getPopularMovies } from '../../../API/movieApi';
+import { popularMoviesAction } from '../../../types/movieTypes';
 
 const HomePage = () => {
-  const [movies, setMovies] = useState<AllMovies[]>([]);
+  const { movies } = useSelector((s: RootState) => s.popularMovies);
+  const dispatch = useDispatch();
 
+  console.log(movies);
   useEffect(() => {
     axios
       .get(`https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`)
       .then(({ data }) => {
-        setMovies(data.results);
+        dispatch(popularMoviesAction.getPopularMovies(data.results));
       });
   }, []);
 

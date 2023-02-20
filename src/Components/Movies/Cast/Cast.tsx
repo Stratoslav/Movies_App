@@ -6,24 +6,17 @@ import { useDispatch } from 'react-redux';
 import Axios from 'axios';
 //component
 import { apiKey } from '../../ApiKey';
-import { ActorActions } from '../../../redux/movieActorSlice';
-import { ActorsType } from '../../../types';
 
+import { ActorsType } from '../../../types';
+//styles
+import './cast.scss';
+import { getActor } from '../../../API/movieApi';
 
 const Cast = () => {
   const [actors, setActors] = useState([]);
   const dispatch = useDispatch();
 
   const { id } = useParams();
-
-  const getActor = (actorId: number): any => {
-    Axios.get(
-      `https://api.themoviedb.org/3/person/${actorId}?api_key=${apiKey}`
-    ).then(({ data }) => {
-     
-      dispatch(ActorActions.addActor(data));
-    });
-  };
 
   useEffect(() => {
     try {
@@ -40,12 +33,16 @@ const Cast = () => {
   }, [id]);
   return (
     <>
-      <h1>actors</h1>
-      <ul>
+      <ul className="cast__list">
         {actors.map(({ id, name, character, profile_path }: ActorsType) => (
-          <li key={id} onClick={() => getActor(id)}>
+          <li
+            className="cast__list-item"
+            key={id}
+            onClick={() => getActor(id, dispatch)}
+          >
             <NavLink to={`/actor/${id}`}>
               <img
+                className="cast__list-img"
                 width={120}
                 src={
                   profile_path
@@ -54,8 +51,8 @@ const Cast = () => {
                 }
                 alt="im"
               />
-              <span>{character}</span>
-              <p>{name}</p>
+              <p className="actor-character">{character}</p>
+              <p className="actor-name">{name}</p>
             </NavLink>
           </li>
         ))}

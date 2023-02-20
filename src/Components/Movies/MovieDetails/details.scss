@@ -1,3 +1,5 @@
+@import '~video-react/styles/scss/video-react';
+
 .details {
   &__img {
     background: rgba(206, 201, 201, 0.4);
@@ -55,4 +57,32 @@
 }
 ._L8X8r {
   width: 530px;
+}
+
+.qwerty {
+  z-index: -5;
+  // width: 530px;
+  & > source {
+    width: 530px;
+  }
+  // background-image: url('https://i.ytimg.com/vi/Kq3fpruK1vc/hqdefault.jpg');
+}
+// .back-button{
+// & > button {
+//   content:
+// }
+// }
+
+.more__information-details {
+  padding-right: 30px;
+  font-size: 21px;
+
+  width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  & > a {
+    //  text-decoration:none;
+    padding-right: 30px;
+    font-weight: 500;
+  }
 }

@@ -26,7 +26,7 @@ const Reviews = () => {
       {review.length === 0 ? (
         <NoReview />
       ) : (
-        <ul>
+        <ul style={{ width: '1200px', margin: '0 auto' }}>
           {review.map(({ id, author, content, author_details, created_at }) => (
             <li key={id}>
               <div>
@@ -44,7 +44,7 @@ const Reviews = () => {
                 />
                 <span>Raiting: {author_details.rating}</span>
               </div>
-             
+
               <div>{created_at}</div>
               <p>{content}</p>
             </li>

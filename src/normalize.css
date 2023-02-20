@@ -8,8 +8,10 @@ h1 {
   font-weight: 400;
   font-family: 'Poppins', Arial, Helvetica, sans-serif fantasy;
 }
+
 body {
-  color: antiquewhite;
+  background: #11192e;
+  color: #fff;
   margin: 0;
 
   font-family: 'Prompt', sans-serif;
@@ -32,4 +34,14 @@ li {
 } */
 p {
   margin: 0;
+}
+
+button {
+  position: absolute;
+  background: inherit;
+  padding: 5px 10px;
+  color: #fff;
+  border: 1px solid #fff;
+  margin: 5px 0px 0px 17px;
+  cursor: pointer;
 }

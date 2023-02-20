@@ -5,6 +5,9 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 //components
 import { apiKey } from '../../ApiKey';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
+import { searchMovie } from '../../../API/movieApi';
 
 type MoviesSearchType = {
   id: number;
@@ -14,30 +17,13 @@ type MoviesSearchType = {
   release_date: string;
 };
 const MoviesPage = () => {
-  const [topMovie, setTopMovie] = useState([]);
+  const { searchedMovie } = useSelector((s: RootState) => s.popularMovies);
   const [query, setQuery] = useState('');
-
-  const getMovie = (query: string) => {
-    try {
-      if (query.length > 0) {
-        axios
-
-          .get(
-            `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`
-          )
-          .then(({ data }) => {
-            setTopMovie(data.results);
-         
-          });
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  const dispatch = useDispatch();
 
   const handleChangeForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    getMovie(query);
+    searchMovie(query, dispatch);
   };
   const onChangeQuery = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.currentTarget.value);
@@ -51,7 +37,7 @@ const MoviesPage = () => {
         <button type="submit">Find</button>
       </form>
       <ul>
-        {topMovie.map(
+        {searchedMovie.map(
           ({
             id,
             original_title,
