@@ -1,9 +1,9 @@
-import { PeopleTypes } from './../types/peopleType';
-import { MovieImage, MovieVideoDetails } from '../types/MovieDetails';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PeopleDetailsType, PeopleTypes } from './../types/peopleType';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  peoples: [] as PeopleTypes[]
+  peoples: [] as PeopleTypes[],
+  peopleDetails: {} as PeopleDetailsType
 };
 
 const movieActor = createSlice({
@@ -11,8 +11,12 @@ const movieActor = createSlice({
   initialState: initialState,
   reducers: {
     getPeopleDetails: (state, action) => {
-      console.log(action.payload.results);
+      // continue
       state.peoples = action.payload.results;
+    },
+    getPersonDetails: (state, action) => {
+      console.log(action.payload);
+      state.peopleDetails = action.payload;
     }
   }
 });

@@ -7,6 +7,7 @@ import { Loyaut } from './Components/Loyaut/Loyaut';
 import routes from './routes';
 import { Actors } from './Components/Movies/Actors/Actors';
 import { People } from './Components/People/People';
+import { PeopleDetails } from './Components/People/PeopleDetails';
 const HomePage = lazy(() => import('./Components/Movies/HomePage/HomePage'));
 const MoviesPage = lazy(
   () => import('./Components/Movies/MoviesPage/MoviesPage')
@@ -31,6 +32,8 @@ const App = () => (
             <Route path="/movies" element={<MoviesPage />}></Route>
             <Route index path={routes.actors} element={<Actors />} />
             <Route index path="/actors" element={<People />} />
+              <Route index path="/actors/:id" element={<PeopleDetails />} />
+
           </Route>
         </Routes>
       </Suspense>

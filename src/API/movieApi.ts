@@ -5,6 +5,7 @@ import { apiKey } from '../Components/ApiKey';
 import { imagesMovieActions } from '../redux/movieDetailsSlice';
 import { ActorActions } from '../redux/movieActorSlice';
 import { popularMoviesAction } from '../types/movieTypes';
+import { peopleMovieActions } from '../redux/peopleSlice';
 
 export const getMovieImage = (id: string, dispatch: AppDispatch) => {
   axios
@@ -48,3 +49,18 @@ export const searchMovie = (query: string, dispatch: AppDispatch) => {
     console.log(e);
   }
 };
+
+
+ export const getPersonData = (id: string | undefined,dispatch: AppDispatch) => {
+    axios
+      .get(
+        `
+
+
+https://api.themoviedb.org/3/person/${id}?api_key=${apiKey}`
+      )
+      .then(({ data }) => {
+        console.log(data);
+        dispatch(peopleMovieActions.getPersonDetails(data));
+      });
+  };
