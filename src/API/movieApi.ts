@@ -20,7 +20,7 @@ https://api.themoviedb.org/3/movie/${id}/images?api_key=${apiKey}   `
 
 export const getActor = (actorId: number, dispatch: AppDispatch): any => {
   axios
-    .get(`https://api.themoviedb.org/3/person/${actorId}?api_key=${apiKey}`)
+    .get(`  /person/${actorId}?api_key=${apiKey}`)
     .then(({ data }) => {
       dispatch(ActorActions.addActor(data));
     });
@@ -66,3 +66,12 @@ https://api.themoviedb.org/3/person/${id}?api_key=${apiKey}`
       dispatch(peopleMovieActions.getPersonDetails(data));
     });
 };
+
+export const getPersonMovie = (id: string | undefined, dispatch: AppDispatch) => {
+  axios.get(`
+https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${apiKey}`)
+    .then(({ data }) => {
+    dispatch(peopleMovieActions.getPersonMovie(data))
+  })
+
+}

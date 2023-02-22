@@ -1,9 +1,10 @@
-import { PeopleDetailsType, PeopleTypes } from './../types/peopleType';
-import { createSlice } from '@reduxjs/toolkit';
+import { PeopleDetailsType, PeopleTypes, PersonMovie } from './../types/peopleType';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
   peoples: [] as PeopleTypes[],
-  peopleDetails: {} as PeopleDetailsType
+  peopleDetails: {} as PeopleDetailsType,
+movies: {} as PersonMovie,
 };
 
 const movieActor = createSlice({
@@ -17,6 +18,10 @@ const movieActor = createSlice({
     getPersonDetails: (state, action) => {
       console.log(action.payload);
       state.peopleDetails = action.payload;
+    },
+    getPersonMovie: (state, action: PayloadAction<PersonMovie>) => {
+      state.movies = action.payload
+      
     }
   }
 });

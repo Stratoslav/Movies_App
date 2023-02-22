@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router';
 
 export const Actors = () => {
   const actor = useSelector((s: RootState) => s.actor.actor);
+ console.log(actor)
   const navigate = useNavigate();
   const makeStepBack = () => {
     navigate(-1);

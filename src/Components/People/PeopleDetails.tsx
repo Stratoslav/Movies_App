@@ -2,8 +2,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router';
-import { getPersonData } from '../../API/movieApi';
+import { getPersonData, getPersonMovie } from '../../API/movieApi';
 import { RootState } from '../../redux/store';
+import { PersonMovie } from './PersonMovie';
 
 export const PeopleDetails = () => {
   const personData = useSelector((s: RootState) => s.people.peopleDetails);
@@ -16,8 +17,10 @@ export const PeopleDetails = () => {
   };
   useEffect(() => {
     getPersonData(id, dispatch);
+    getPersonMovie(id, dispatch)
   }, [id]);
   return (
+    <>
     <div className=" people__details">
       <div>
         <button onClick={makeStepBack}>Back</button>
@@ -47,6 +50,9 @@ export const PeopleDetails = () => {
         </div>
         <p>gender:{personData.gender}</p>
       </div>
-    </div>
+      
+      </div>
+      <PersonMovie/>s
+      </>
   );
 };

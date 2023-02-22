@@ -40,7 +40,7 @@ const Cast = () => {
             key={id}
             onClick={() => getActor(id, dispatch)}
           >
-            <NavLink to={`/actor/${id}`}>
+            <NavLink to={`/actors/${id}`}>
               <img
                 className="cast__list-img"
                 width={120}

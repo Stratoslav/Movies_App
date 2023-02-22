@@ -44,3 +44,66 @@ export type PeopleDetailsType = {
   popularity: string;
   profile_path: string;
 };
+
+interface PersonMovieCast  {
+  adult
+: 
+boolean
+backdrop_path
+: 
+string
+character
+: 
+string
+credit_id
+: 
+string
+genre_ids
+: 
+number[]
+id
+: 
+number
+order
+: 
+number
+original_language
+: 
+string
+original_title
+: 
+string
+overview
+: 
+string
+popularity
+: 
+number
+poster_path
+: 
+string
+release_date
+: 
+string
+title
+: 
+string
+video
+: 
+boolean
+vote_average
+: 
+number
+vote_count:
+number
+}
+interface PersonMovieCrew extends Omit<PersonMovieCast, "character" | "order"> {
+  department: string,
+  job: string
+}
+export type PersonMovie = {
+  cast: PersonMovieCast[],
+  crew: PersonMovieCrew[]
+}
+
+
