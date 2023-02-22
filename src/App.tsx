@@ -20,24 +20,21 @@ const Cast = lazy(() => import('./Components/Movies/Cast/Cast'));
 
 const App = () => (
   <>
-    <div className="container">
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path={routes.home} element={<Loyaut />}>
-            <Route index element={<HomePage />} />
-            <Route path={routes.moviesPage} element={<MovieDetails />}>
-              <Route path={routes.movieReview} element={<Reviews />} />
-              <Route path={routes.movieCredits} element={<Cast />} />
-            </Route>
-            <Route path="/movies" element={<MoviesPage />}></Route>
-            <Route index path={routes.actors} element={<Actors />} />
-            <Route index path="/actors" element={<People />} />
-              <Route index path="/actors/:id" element={<PeopleDetails />} />
-
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path={routes.home} element={<Loyaut />}>
+          <Route index element={<HomePage />} />
+          <Route path={routes.moviesPage} element={<MovieDetails />}>
+            <Route path={routes.movieReview} element={<Reviews />} />
+            <Route path={routes.movieCredits} element={<Cast />} />
           </Route>
-        </Routes>
-      </Suspense>
-    </div>
+          <Route path="/movies" element={<MoviesPage />}></Route>
+          <Route index path={routes.actors} element={<Actors />} />
+          <Route index path="/actors" element={<People />} />
+          <Route index path="/actors/:id" element={<PeopleDetails />} />
+        </Route>
+      </Routes>
+    </Suspense>
   </>
 );
 

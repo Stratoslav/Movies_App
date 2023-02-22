@@ -8,7 +8,8 @@ import { apiKey } from '../../ApiKey';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import { searchMovie } from '../../../API/movieApi';
-
+//styles
+import './moviesPage.scss';
 type MoviesSearchType = {
   id: number;
   original_title: string;
@@ -30,38 +31,53 @@ const MoviesPage = () => {
   };
 
   return (
-    <>
+    <div className="movies container">
       <h1>Movie Page</h1>
-      <form onSubmit={handleChangeForm}>
-        <input onChange={onChangeQuery} type="text" value={query} />
-        <button type="submit">Find</button>
-      </form>
+      <div className="container__item">
+        <form className="form" onSubmit={handleChangeForm}>
+          <input
+            onChange={onChangeQuery}
+            value={query}
+            type="text"
+            className="form__field"
+            placeholder="Find movie"
+          />
+          <button
+            type="submit"
+            className="btn btn--primary btn--inside uppercase"
+          >
+            Find
+          </button>
+        </form>
+      </div>
       <ul>
-        {searchedMovie.map(
-          ({
-            id,
-            original_title,
-            backdrop_path,
-            overview,
-            release_date
-          }: MoviesSearchType) => (
-            <li key={id}>
-              <NavLink to={`/movies/${id}`}>
-                <div>
-                  <img
-                    src={`https://www.themoviedb.org/t/p/w94_and_h141_bestv2/${backdrop_path}`}
-                    alt="f"
-                  />
-                  <h3>{original_title}</h3>
-                  <p>{release_date}</p>
-                </div>
-                <div>{overview}</div>
-              </NavLink>
-            </li>
-          )
-        )}
+        {searchedMovie.length > 0
+          ? searchedMovie.map(
+              ({
+                id,
+                original_title,
+                backdrop_path,
+                overview,
+                release_date
+              }: MoviesSearchType) => (
+                <li key={id}>
+                  <NavLink to={`/movies/${id}`}>
+                    <div>
+                      <img
+                        src={`https://www.themoviedb.org/t/p/w94_and_h141_bestv2/${backdrop_path}`}
+                        alt="f"
+                      />
+                      <h3>{original_title}</h3>
+                      <p>{release_date}</p>
+                    </div>
+                    <div>{overview}</div>
+                  </NavLink>
+                </li>
+              )
+            )
+          : "Sorry, but film with such name don't exist!"}
       </ul>
-    </>
+    </div>
   );
 };
 

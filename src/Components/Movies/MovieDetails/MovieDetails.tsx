@@ -15,7 +15,7 @@ import { getMovieImage } from '../../../API/movieApi';
 const MovieDetails = () => {
   const dispatch = useDispatch();
   const [movie, setMovie] = useState<MovieDetailsTypes>(Object);
-  const [isImage, setIsImage] = useState(false);
+
   const { id } = useParams();
   const navigate = useNavigate();
 

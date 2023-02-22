@@ -50,17 +50,19 @@ export const searchMovie = (query: string, dispatch: AppDispatch) => {
   }
 };
 
-
- export const getPersonData = (id: string | undefined,dispatch: AppDispatch) => {
-    axios
-      .get(
-        `
+export const getPersonData = (
+  id: string | undefined,
+  dispatch: AppDispatch
+) => {
+  axios
+    .get(
+      `
 
 
 https://api.themoviedb.org/3/person/${id}?api_key=${apiKey}`
-      )
-      .then(({ data }) => {
-        console.log(data);
-        dispatch(peopleMovieActions.getPersonDetails(data));
-      });
-  };
+    )
+    .then(({ data }) => {
+      console.log(data);
+      dispatch(peopleMovieActions.getPersonDetails(data));
+    });
+};

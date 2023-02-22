@@ -28,21 +28,23 @@ li {
   list-style: none;
   padding: 0;
 }
-/* .container {
-  width: 1300px;
-
-} */
+.container {
+  margin: 0 10px;
+}
 p {
   margin: 0;
 }
 
 button {
+  margin-left: 15px;
+
+  background: azure;
+  padding: 3px 25px;
+  color: #000;
+  border: 1px solid #ffffff;
+
   position: absolute;
-  background: inherit;
-    padding: 1px 25px;
-  color: #fff;
-      border: 2px solid #9b9b9b;
-  margin: 5px 0px 0px 17px;
-  cursor: pointer;
   font-size: 16px;
+  transition: all 200ms ease-in;
+  cursor: pointer;
 }
