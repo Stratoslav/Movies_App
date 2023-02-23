@@ -15,7 +15,7 @@ type PeopleKnown = {
   vote_average: number;
   vote_count: number;
 };
-
+export interface SearchedMovieType extends Omit<PeopleKnown, 'media_type'> {}
 export type PeopleTypes = {
   adult: boolean;
   gender: number;
@@ -45,65 +45,30 @@ export type PeopleDetailsType = {
   profile_path: string;
 };
 
-interface PersonMovieCast  {
-  adult
-: 
-boolean
-backdrop_path
-: 
-string
-character
-: 
-string
-credit_id
-: 
-string
-genre_ids
-: 
-number[]
-id
-: 
-number
-order
-: 
-number
-original_language
-: 
-string
-original_title
-: 
-string
-overview
-: 
-string
-popularity
-: 
-number
-poster_path
-: 
-string
-release_date
-: 
-string
-title
-: 
-string
-video
-: 
-boolean
-vote_average
-: 
-number
-vote_count:
-number
+interface PersonMovieCast {
+  adult: boolean;
+  backdrop_path: string;
+  character: string;
+  credit_id: string;
+  genre_ids: number[];
+  id: number;
+  order: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 }
-interface PersonMovieCrew extends Omit<PersonMovieCast, "character" | "order"> {
-  department: string,
-  job: string
+interface PersonMovieCrew extends Omit<PersonMovieCast, 'character' | 'order'> {
+  department: string;
+  job: string;
 }
 export type PersonMovie = {
-  cast: PersonMovieCast[],
-  crew: PersonMovieCrew[]
-}
-
-
+  cast: PersonMovieCast[];
+  crew: PersonMovieCrew[];
+};

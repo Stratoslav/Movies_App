@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { popularMoviesReducer } from '../types/movieTypes';
+import { popularMoviesReducer } from './movieSlice';
 import { ActorReducer } from './movieActorSlice';
 import { imagesMovieReducer } from './movieDetailsSlice';
 import { peopleMovieReducer } from './peopleSlice';

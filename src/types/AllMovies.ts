@@ -17,3 +17,11 @@ export type AllMovies = {
   vote_average?: number;
   vote_count?: number;
 };
+
+export type MoviesSearchType = {
+  id: number;
+  original_title: string;
+  backdrop_path: string;
+  overview: string;
+  release_date: string;
+};

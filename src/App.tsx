@@ -2,12 +2,10 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 //lib
-import { Loyaut } from './Components/Loyaut/Loyaut';
+
 //components
 import routes from './routes';
-import { Actors } from './Components/Movies/Actors/Actors';
-import { People } from './Components/People/People';
-import { PeopleDetails } from './Components/People/PeopleDetails';
+
 const HomePage = lazy(() => import('./Components/Movies/HomePage/HomePage'));
 const MoviesPage = lazy(
   () => import('./Components/Movies/MoviesPage/MoviesPage')
@@ -17,7 +15,10 @@ const MovieDetails = lazy(
 );
 const Reviews = lazy(() => import('./Components/Movies/Review/Reviews'));
 const Cast = lazy(() => import('./Components/Movies/Cast/Cast'));
-
+const Actors = lazy(() => import('./Components/Movies/Actors/Actors'));
+const People = lazy(() => import('./Components/People/People'));
+const PeopleDetails = lazy(() => import('./Components/People/PeopleDetails'));
+const Loyaut = lazy(() => import('./Components/Loyaut/Loyaut'));
 const App = () => (
   <>
     <Suspense fallback={<div>Loading...</div>}>
@@ -30,8 +31,8 @@ const App = () => (
           </Route>
           <Route path="/movies" element={<MoviesPage />}></Route>
           <Route index path={routes.actors} element={<Actors />} />
-          <Route index path="/actors" element={<People />} />
-          <Route index path="/actors/:id" element={<PeopleDetails />} />
+          <Route index path={routes.people} element={<People />} />
+          <Route index path={routes.actor} element={<PeopleDetails />} />
         </Route>
       </Routes>
     </Suspense>

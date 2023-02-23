@@ -1,33 +1,25 @@
 import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 //lib
-import Axios from 'axios';
 //components
-import { apiKey } from '../../ApiKey';
-import { MovieDetailsTypes } from '../../../types';
-import { useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { MovieDetailsImage } from './MovieDetailsImage';
 //styles
 import './details.scss';
-import { getMovieImage } from '../../../API/movieApi';
+import { getMovieDetails, getMovieImage } from '../../../API/movieApi';
+import { RootState } from '../../../redux/store';
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
-  const [movie, setMovie] = useState<MovieDetailsTypes>(Object);
-
+  const movie = useSelector((s: RootState) => s.imageDetails.movie);
   const { id } = useParams();
   const navigate = useNavigate();
 
   const goToBack = () => navigate(-1);
 
   useEffect(() => {
-    Axios.get(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
-    ).then(({ data }) => {
-      setMovie(data);
-    });
     if (id) {
+      getMovieDetails(id, dispatch);
       getMovieImage(id, dispatch);
     }
   }, [id]);
@@ -35,9 +27,9 @@ const MovieDetails = () => {
   return (
     <>
       <section className="details">
-        <button className="back-button" onClick={goToBack}>
+        {/* <button className="back-button" onClick={goToBack}>
           <span></span> Back
-        </button>
+        </button> */}
         <div className="background">
           <img
             className="details__img"
@@ -49,10 +41,10 @@ const MovieDetails = () => {
             alt=""
           />
         </div>
-
+            <h1 className="details__title"> {movie.original_title}</h1>
         <div className="details__wrap">
           <div className="wrap-1">
-            <h1 className="details__title"> {movie.original_title}</h1>
+
 
             <img
               className="details__backdrop"
@@ -97,10 +89,10 @@ const MovieDetails = () => {
                 <big style={{ fontWeight: 500 }}>Production:</big>{' '}
                 {movie.production_companies &&
                   movie.production_companies.map((company) => (
-                    <p key={company.id} className="details__company-prod">
+                 (  <p key={company.id} className="details__company-prod">
                       {' '}
                       {company.name}
-                    </p>
+                    </p>)
                   ))}
               </div>
             </div>

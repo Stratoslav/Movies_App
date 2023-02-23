@@ -35,8 +35,9 @@ export const MovieDetailsImage = () => {
         <>
           {' '}
           <h2 style={{ width: '1200px', margin: '20px auto' }}>Media</h2>
-          <ul>
+          <div className={"details__image"} style={{ width: '100%', margin: '0 auto' }}>
             <Carousel
+            className="Carousel"
               swipeable={false}
               draggable={false}
               showDots={true}
@@ -45,7 +46,7 @@ export const MovieDetailsImage = () => {
               infinite={true}
               autoPlaySpeed={1000}
               keyBoardControl={true}
-              customTransition="all .5"
+              customTransition={"all .5"}
               transitionDuration={500}
               containerClass="carousel-container"
               removeArrowOnDeviceType={['tablet', 'mobile']}
@@ -53,16 +54,16 @@ export const MovieDetailsImage = () => {
               itemClass="carousel-item-padding-40-px"
             >
               {images?.backdrops?.map((image) => (
-                <li className="details__list-img-item" key={uniqid()}>
+                <div className="details__list-img-item" key={uniqid()}>
                   <img
                     className="details__list-img-backdrop"
                     src={`https://www.themoviedb.org/t/p/w533_and_h300_bestv2/${image.file_path}`}
                     alt=""
                   />
-                </li>
+                </div>
               ))}
             </Carousel>
-          </ul>{' '}
+          </div>{' '}
         </>
       ) : (
         'Loading'

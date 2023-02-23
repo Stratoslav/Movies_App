@@ -1,10 +1,14 @@
-import { PeopleDetailsType, PeopleTypes, PersonMovie } from './../types/peopleType';
+import {
+  PeopleDetailsType,
+  PeopleTypes,
+  PersonMovie
+} from './../types/peopleType';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
   peoples: [] as PeopleTypes[],
   peopleDetails: {} as PeopleDetailsType,
-movies: {} as PersonMovie,
+  movies: {} as PersonMovie
 };
 
 const movieActor = createSlice({
@@ -12,7 +16,6 @@ const movieActor = createSlice({
   initialState: initialState,
   reducers: {
     getPeopleDetails: (state, action) => {
-      // continue
       state.peoples = action.payload.results;
     },
     getPersonDetails: (state, action) => {
@@ -20,8 +23,7 @@ const movieActor = createSlice({
       state.peopleDetails = action.payload;
     },
     getPersonMovie: (state, action: PayloadAction<PersonMovie>) => {
-      state.movies = action.payload
-      
+      state.movies = action.payload;
     }
   }
 });

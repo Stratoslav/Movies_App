@@ -1,5 +1,5 @@
 //react
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 //lib
 import Axios from 'axios';

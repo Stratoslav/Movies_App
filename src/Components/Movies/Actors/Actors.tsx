@@ -3,9 +3,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import { useNavigate } from 'react-router';
 
-export const Actors = () => {
+const Actors = () => {
   const actor = useSelector((s: RootState) => s.actor.actor);
- console.log(actor)
   const navigate = useNavigate();
   const makeStepBack = () => {
     navigate(-1);
@@ -34,3 +33,4 @@ export const Actors = () => {
     </>
   );
 };
+export default Actors;

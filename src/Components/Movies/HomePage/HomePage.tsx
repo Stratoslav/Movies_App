@@ -1,16 +1,11 @@
 //react
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-//lib
-import axios from 'axios';
 //components
 import './homePage.scss';
-import { apiKey } from '../../ApiKey';
-import { AllMovies } from '../../../types/AllMovies';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
-import { getPopularMovies } from '../../../API/movieApi';
-import { popularMoviesAction } from '../../../types/movieTypes';
+import { getPopularMovie } from '../../../API/movieApi';
 
 const HomePage = () => {
   const { movies } = useSelector((s: RootState) => s.popularMovies);
@@ -18,11 +13,7 @@ const HomePage = () => {
 
   console.log(movies);
   useEffect(() => {
-    axios
-      .get(`https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`)
-      .then(({ data }) => {
-        dispatch(popularMoviesAction.getPopularMovies(data.results));
-      });
+    getPopularMovie(dispatch);
   }, []);
 
   return (
