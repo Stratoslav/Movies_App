@@ -29,16 +29,18 @@ const Layout = () => {
   }
   useEffect(() => {
     getGuestSession(dispatch);
-    RequestTokenApi(dispatch);
+     RequestTokenApi(dispatch);
     if (requestToken.request_token) {
       getAuthUser(requestToken.request_token, dispatch);
     }
-  }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
+ 
   const handelDeleteSession = () => {
     DeleteSessionApi(sessionId, dispatch);
   };
-
+console.log(sessionId)
   return (
     <div>
       <div className="wrap" onClick={(e) => addActiveClass(e)}>

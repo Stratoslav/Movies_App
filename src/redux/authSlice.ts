@@ -4,14 +4,14 @@ type sessionIdType = {
   session__id: string;
   success: boolean;
 };
-let isLogIn: sessionIdType | null =
+let isLogIn: sessionIdType  =
   localStorage.getItem('sessionId') !== null
     ? JSON.parse(localStorage.getItem('sessionId')!)
     : null;
 const initialState = {
   guest: {} as GuestSessionType,
   requestToken: {} as RequestToken,
-  sessionId: isLogIn as sessionIdType | null
+  sessionId: isLogIn as sessionIdType 
 };
 
 const AuthSlice = createSlice({
@@ -22,15 +22,16 @@ const AuthSlice = createSlice({
       state.guest = action.payload;
     },
     getRequestToken: (state, action) => {
-  
+       console.log(action.payload)
       state.requestToken = action.payload;
     },
-    getSessionId: (state, action) => {
+      getSessionId: (state, action) => {
+        console.log(action.payload)
       state.sessionId = action.payload;
       localStorage.setItem('sessionId', JSON.stringify(state.sessionId));
     },
     deleteSession: (state, action) => {
-      state.sessionId = null;
+      state.sessionId = {session__id: '',success: false };
       localStorage.setItem('sessionId', JSON.stringify(state.sessionId));
     }
   }

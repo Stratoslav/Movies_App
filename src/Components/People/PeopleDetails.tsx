@@ -19,7 +19,7 @@ const PeopleDetails = () => {
   useEffect(() => {
     getPersonData(id, dispatch);
     getPersonMovie(id, dispatch);
-  }, [id]);
+  }, [id, dispatch]);
   return (
     <>
       <div className=" people__details">

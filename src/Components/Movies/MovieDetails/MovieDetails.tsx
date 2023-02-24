@@ -1,5 +1,5 @@
 //react
-import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
+import { useParams, NavLink, Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
 //components
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,16 +13,16 @@ const MovieDetails = () => {
   const dispatch = useDispatch();
   const movie = useSelector((s: RootState) => s.imageDetails.movie);
   const { id } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const goToBack = () => navigate(-1);
+  // const goToBack = () => navigate(-1);
 
   useEffect(() => {
     if (id) {
       getMovieDetails(id, dispatch);
       getMovieImage(id, dispatch);
     }
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <>
