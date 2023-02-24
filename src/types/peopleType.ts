@@ -15,7 +15,7 @@ type PeopleKnown = {
   vote_average: number;
   vote_count: number;
 };
-export interface SearchedMovieType extends Omit<PeopleKnown, 'media_type'> {}
+export type SearchedMovieType = {} | Omit<PeopleKnown, 'media_type'>
 export type PeopleTypes = {
   adult: boolean;
   gender: number;
