@@ -3,4 +3,4 @@ export * from './Review';
 export * from './ActorTypes';
 export * from './AllMovies';
 export * from './AuthorizationTypes';
-export * from './PeopleType';
+// export * from './PeopleType';
