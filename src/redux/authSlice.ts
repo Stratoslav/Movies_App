@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GuestSessionType, RequestToken } from '../types/AuthorizationTypes';
+import { GuestSessionType, RequestToken } from '../types/AuthterizationTypes';
 type sessionIdType = {
   session__id: string;
   success: boolean;
