@@ -1,4 +1,3 @@
-//** variables
 $background: #f5f6fa;
 $text: #9c9c9c;
 $input-bg-color: #fff;
@@ -35,7 +34,7 @@ $button-text-color: #fff;
   margin-top: 20px;
 }
 .people__list {
-  justify-content: start;
+  justify-content: flex-start;
   display: flex;
   flex-wrap: wrap;
   &-item {

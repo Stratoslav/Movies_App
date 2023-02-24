@@ -14,7 +14,7 @@ const HomePage = () => {
   console.log(movies);
   useEffect(() => {
     getPopularMovie(dispatch);
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
