@@ -1,4 +1,4 @@
-type PeopleKnown = {
+ type PeopleKnown = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -15,7 +15,7 @@ type PeopleKnown = {
   vote_average: number;
   vote_count: number;
 };
-export interface SearchedMovieType extends Omit<PeopleKnown, 'media_type'> {}
+// export interface SearchedMovieType extends Omit<PeopleKnown, 'media_type'> {}
 export type PeopleTypes = {
   adult: boolean;
   gender: number;

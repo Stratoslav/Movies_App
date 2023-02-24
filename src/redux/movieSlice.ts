@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AllMovies } from '../types/AllMovies';
-import { SearchedMovieType } from '../types/PeopleType';
+import { AllMovies, SearchedMovieType } from '../types/AllMovies';
+
 
 
 
