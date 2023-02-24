@@ -1,5 +1,5 @@
-import { ActorTypes } from '../types/ActorTypes';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ActorTypes } from '../types/ActorTypes';
 
 const initialState = { actor: {} as ActorTypes };
 

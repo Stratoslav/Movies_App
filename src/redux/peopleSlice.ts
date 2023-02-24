@@ -2,7 +2,7 @@ import {
   PeopleDetailsType,
   PeopleTypes,
   PersonMovie
-} from './../types/peopleType';
+} from '../types/PeopleType';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {

@@ -35,9 +35,12 @@ export const MovieDetailsImage = () => {
         <>
           {' '}
           <h2 style={{ width: '1200px', margin: '20px auto' }}>Media</h2>
-          <div className={"details__image"} style={{ width: '100%', margin: '0 auto' }}>
+          <div
+            className={'details__image'}
+            style={{ width: '100%', margin: '0 auto' }}
+          >
             <Carousel
-            className="Carousel"
+              className="Carousel"
               swipeable={false}
               draggable={false}
               showDots={true}
@@ -46,7 +49,7 @@ export const MovieDetailsImage = () => {
               infinite={true}
               autoPlaySpeed={1000}
               keyBoardControl={true}
-              customTransition={"all .5"}
+              customTransition={'all .5'}
               transitionDuration={500}
               containerClass="carousel-container"
               removeArrowOnDeviceType={['tablet', 'mobile']}

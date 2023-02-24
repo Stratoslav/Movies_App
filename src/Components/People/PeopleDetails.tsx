@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router';
+//components
 import { getPersonData, getPersonMovie } from '../../API/movieApi';
 import { RootState } from '../../redux/store';
 import { PersonMovie } from './PersonMovie';

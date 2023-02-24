@@ -1,6 +1,7 @@
-import { SearchedMovieType } from './../types/peopleType';
-import { AllMovies } from '../types/AllMovies';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { SearchedMovieType } from '../types/PeopleType';
+import { AllMovies } from '../types/AllMovies';
+
 
 const initialState = {
   movies: [] as AllMovies[],

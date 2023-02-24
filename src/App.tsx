@@ -1,11 +1,8 @@
 //react
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-//lib
-
 //components
 import routes from './routes';
-
 const HomePage = lazy(() => import('./Components/Movies/HomePage/HomePage'));
 const MoviesPage = lazy(
   () => import('./Components/Movies/MoviesPage/MoviesPage')
@@ -18,12 +15,13 @@ const Cast = lazy(() => import('./Components/Movies/Cast/Cast'));
 const Actors = lazy(() => import('./Components/Movies/Actors/Actors'));
 const People = lazy(() => import('./Components/People/People'));
 const PeopleDetails = lazy(() => import('./Components/People/PeopleDetails'));
-const Loyaut = lazy(() => import('./Components/Loyaut/Loyaut'));
+const Layout = lazy(() => import('./Components/Loyaut/Layout'));
+
 const App = () => (
   <>
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        <Route path={routes.home} element={<Loyaut />}>
+        <Route path={routes.home} element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path={routes.moviesPage} element={<MovieDetails />}>
             <Route path={routes.movieReview} element={<Reviews />} />

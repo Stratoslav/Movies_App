@@ -1,13 +1,13 @@
+//react
 import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
-//lib
 //components
 import { useDispatch, useSelector } from 'react-redux';
 import { MovieDetailsImage } from './MovieDetailsImage';
-//styles
-import './details.scss';
 import { getMovieDetails, getMovieImage } from '../../../API/movieApi';
 import { RootState } from '../../../redux/store';
+//styles
+import './details.scss';
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const MovieDetails = () => {
     <>
       <section className="details">
         {/* <button className="back-button" onClick={goToBack}>
-          <span></span> Back
+          <span></span> Backs
         </button> */}
         <div className="background">
           <img
@@ -41,11 +41,9 @@ const MovieDetails = () => {
             alt=""
           />
         </div>
-            <h1 className="details__title"> {movie.original_title}</h1>
+        <h1 className="details__title"> {movie.original_title}</h1>
         <div className="details__wrap">
           <div className="wrap-1">
-
-
             <img
               className="details__backdrop"
               width="300"
@@ -89,10 +87,10 @@ const MovieDetails = () => {
                 <big style={{ fontWeight: 500 }}>Production:</big>{' '}
                 {movie.production_companies &&
                   movie.production_companies.map((company) => (
-                 (  <p key={company.id} className="details__company-prod">
+                    <p key={company.id} className="details__company-prod">
                       {' '}
                       {company.name}
-                    </p>)
+                    </p>
                   ))}
               </div>
             </div>

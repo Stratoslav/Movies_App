@@ -9,12 +9,11 @@
     object-fit: cover;
     position: absolute;
     z-index: -55;
-  
   }
   & > h1 {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   &__wrap {
     width: 1200px;
     height: 555px;
@@ -50,7 +49,7 @@
 
 .wrap-2 {
   margin-left: 20px;
-  max-width: 900px ;
+  max-width: 900px;
 }
 
 .background {
@@ -59,7 +58,6 @@
   height: 600px;
   position: absolute;
   z-index: -3;
-
 }
 ._L8X8r {
   width: 530px;
@@ -87,7 +85,6 @@
   }
 }
 
-
 .react-multi-carousel-track {
-  width:100%;
+  width: 100%;
 }

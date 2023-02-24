@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPeople } from '../../API/movieApi';
@@ -11,12 +11,12 @@ const People = () => {
 
   const dispatch = useDispatch();
 
-  const handleSubmitForm = (e: any) => {
+  const handleSubmitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     getPeople(query, dispatch);
   };
-  const getInputValue = (e: any) => {
-    console.log(e.target.value);
+  const getInputValue = (e: ChangeEvent<HTMLInputElement>) => {
+
     setQuery(e.target.value);
   };
 
@@ -41,25 +41,22 @@ const People = () => {
 
       <ul className="people__list">
         {peoples.length > 0
-          ? peoples.map((p) => (
-              <div key={p.id}>
-                {p.name.length < 3 ? null : (
-                  <li className="people__list-item" key={p.id}>
-                    <NavLink to={`/actors/${p.id}`}>
-                      <p className="people__list-text">{p.name}</p>
-                      {p.profile_path ? (
-                        <img
+          ? peoples.map(({id, name, profile_path}) => (
+              <div key={id}>
+                {name.length < 3 ? null : (
+                  <li className="people__list-item" key={id}>
+                    <NavLink to={`/actors/${id}`}>
+                      <p className="people__list-text">{name}</p>
+                    
+                    <img
+                      width={250}
+                      height={250}
                           alt=""
-                          src={`https://www.themoviedb.org/t/p/w235_and_h235_face/${p.profile_path}`}
+                        src={profile_path ?
+                          `https://www.themoviedb.org/t/p/w235_and_h235_face/${profile_path}`
+                         : "https://t3.ftcdn.net/jpg/02/43/51/48/360_F_243514868_XDIMJHNNJYKLRST05XnnTj0MBpC4hdT5.jpg"}
                         />
-                      ) : (
-                        <img
-                          width={235}
-                          height={235}
-                          src="https://t3.ftcdn.net/jpg/02/43/51/48/360_F_243514868_XDIMJHNNJYKLRST05XnnTj0MBpC4hdT5.jpg"
-                          alt=""
-                        />
-                      )}
+     
                     </NavLink>
                   </li>
                 )}

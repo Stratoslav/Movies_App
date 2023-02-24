@@ -1,11 +1,12 @@
-import { useDispatch } from 'react-redux';
+//components
 import { AppDispatch } from '../redux/store';
-import axios from 'axios';
-import { apiKey } from '../Components/ApiKey';
 import { imagesMovieActions } from '../redux/movieDetailsSlice';
 import { ActorActions } from '../redux/movieActorSlice';
 import { popularMoviesAction } from '../redux/movieSlice';
 import { peopleMovieActions } from '../redux/peopleSlice';
+import { apiKey } from '../Components/ApiKey';
+//lib
+import axios from 'axios';
 
 const mainProtocol = 'https://api.themoviedb.org/3';
 // const dispatch = useDispatch<AppDispatch>()
@@ -21,9 +22,11 @@ ${mainProtocol}/movie/${id}/images?api_key=${apiKey}   `
 };
 
 export const getActor = (actorId: number, dispatch: AppDispatch): any => {
-  axios.get(`${mainProtocol}/person/${actorId}?api_key=${apiKey}`).then(({ data }) => {
-    dispatch(ActorActions.addActor(data));
-  });
+  axios
+    .get(`${mainProtocol}/person/${actorId}?api_key=${apiKey}`)
+    .then(({ data }) => {
+      dispatch(ActorActions.addActor(data));
+    });
 };
 export const getPopularMovies = (dispatch: AppDispatch) => {
   axios

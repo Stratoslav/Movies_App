@@ -1,5 +1,6 @@
-import { MovieDetailsTypes, MovieImage } from '../types/MovieDetails';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { MovieDetailsTypes, MovieImage } from '../types/MovieDetails';
 
 const initialState = {
   images: {} as MovieImage,
