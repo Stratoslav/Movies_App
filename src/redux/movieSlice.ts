@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SearchedMovieType } from '../types/PeopleType';
 import { AllMovies } from '../types/AllMovies';
+import { SearchedMovieType } from '../types/PeopleType';
+
+
 
 
 const initialState = {
